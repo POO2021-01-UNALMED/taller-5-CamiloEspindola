@@ -4,12 +4,11 @@ package zooAnimales;
 public class Reptil extends Animal {
 
 		private static Reptil listado[];
-		public int iguanas;
-		public int serpientes;
+		public static int iguanas;
+		public static int serpientes;
 		private String colorEscamas;
 		private int largoCola;
 		public static int i = 0;
-		
 		
 		
 		public Reptil[] getListado() {

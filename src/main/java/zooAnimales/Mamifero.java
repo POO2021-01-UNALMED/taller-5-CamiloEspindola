@@ -2,12 +2,11 @@ package zooAnimales;
 
 public class Mamifero extends Animal {
 	private static Mamifero listado[];
-	public int caballos;
-	public int leones;
+	public static int caballos;
+	public static int leones;
 	private boolean pelaje;
 	private int patas;
 	public static int i = 0;
-	
 	
 	public Mamifero[] getListado() {
 		return listado;

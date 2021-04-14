@@ -3,7 +3,8 @@ package gestion;
 public class Zoologico {
 	private String nombre;
 	private String ubicacion;
-	private Zona Zonas [];
+	private static Zona Zonas [];
+	public static int i = 0;
 	
 	public String getNombre() {
 		return nombre;
@@ -23,21 +24,25 @@ public class Zoologico {
 	public void setZonas(Zona[] zonas) {
 		Zonas = zonas;
 	}
-	int i = 0;
+	
 	public Zoologico(String nombre, String ubicacion) {
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
 	}
 	public Zoologico() {};
 	
-	public void agregarZonas() {
-		
-	}
-	public int cantidadTotalAnimales() {
-		return 2;
-		
-	}
 	
+	public void agregarZonas() {
+		Zonas[i] = new Zona();
+		i++;
+	}
+	int total = 0;
+	public int cantidadTotalAnimales() {
+		for(int i = 0; i<Zonas.length; i++) {
+			total += Zonas[i].cantidadAnimales();
+		}
+		return total;
+	}
 	
 	
 }

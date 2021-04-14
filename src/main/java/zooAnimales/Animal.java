@@ -2,12 +2,12 @@ package zooAnimales;
 import gestion.Zona;
 import gestion.Zoologico;
 public class Animal {
-	private int totalAnimales;
+	private static int totalAnimales;
 	private String nombre;
 	private int edad;
 	private String habitat;
 	private String genero;
-	private Zona zona [];
+	private static Zona zona [];
 	
 	
 	public String getNombre() {
@@ -89,7 +89,6 @@ public class Animal {
 			    "Peces: "+Integer.toString(objP.cantidadPeces())+
 			    "Anfibios: "+Integer.toString(objAn.cantidadAnfibios())
 				);
-		
 	}
 	
     Zoologico objZ;

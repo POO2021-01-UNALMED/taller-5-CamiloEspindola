@@ -3,9 +3,9 @@ import zooAnimales.Animal;
 public class Zona {
 	
 	private String nombre;
-	private Zoologico zoo [];
-	private  Animal Animales [];
-	int i = 0;
+	private static Zoologico zoo [];
+	private static Animal Animales [];
+	public static int i = 0;
     
 	public String getNombre() {
 		return nombre;
@@ -31,12 +31,20 @@ public class Zona {
 	public Zona() {}
 	
 	
-	public void agregarAnimales(Animal animalNuevo) {
-		Animales[i] = animalNuevo; 
+	public void agregarAnimales() {
+		Animales[i] = new Animal(); 
 		i++;
 	}
+	
+	
+	int total = 0;
+	
+	
 	public int cantidadAnimales() {
-		return i;
+		for(int i = 0; i<Animales.length; i++) {
+			total += Animales[i].getTotalAnimales();
+		}
+		return total;
 	}
 	
 }
