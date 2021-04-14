@@ -1,13 +1,11 @@
 package zooAnimales;
 
-import gestion.Zona;
-
 public class Ave extends Animal {
-	private Ave listado [];
+	private static Ave listado [];
 	public int halcones;
 	public int aguilas;
 	private String colorPlumas;
-	int i = 0;
+	public static int i = 0;
 	
 	
 	public Ave[] getListado() {
@@ -23,14 +21,19 @@ public class Ave extends Animal {
 		this.colorPlumas = colorPlumas;
 	}
 	public Ave(String nombre, int edad, String habitat, String genero, String colorPlumas ) {
-		super(nombre, edad, habitat, genero);
+		super.setNombre(nombre);
+		super.setEdad(edad);
+		super.setHabitat(habitat);
+		super.setGenero(genero);
 		this.colorPlumas = colorPlumas;
+		listado[i] = this;
 		i++;
 	}
+	
 	public Ave() {}
 	
 	public int cantidadAves() {
-		return halcones+aguilas+i;
+		return i;
 	}
 	
 	public String movimiento() {
@@ -45,7 +48,9 @@ public class Ave extends Animal {
 	
 	public void crearAguila(String nombre, int edad, String genero) {
 		Ave obj1 = new Ave (nombre, edad, "montanas", genero, "blanco y amarillo" );
+		listado[i] = this;
 		aguilas++;
+		i++;
 		
 	}
 	

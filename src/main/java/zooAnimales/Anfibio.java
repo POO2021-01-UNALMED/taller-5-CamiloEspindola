@@ -1,15 +1,14 @@
 package zooAnimales;
 
-import gestion.Zona;
 
 public class Anfibio extends Animal{
 
-	private Anfibio listado[];
+	private static Anfibio listado[];
 	public int ranas;
 	public int salamandras;
 	private String colorPiel;
 	private boolean venenoso;
-	int i = 0;
+	public static int i = 0;
 	
 	
 	public Anfibio[] getListado() {
@@ -31,15 +30,19 @@ public class Anfibio extends Animal{
 		this.venenoso = venenoso;
 	}
 	public Anfibio(String nombre, int edad, String habitat, String genero, String colorPiel, boolean venenoso) {
-		super(nombre, edad, habitat, genero);
+		super.setNombre(nombre);
+		super.setEdad(edad);
+		super.setHabitat(habitat);
+		super.setGenero(genero);
 		this.colorPiel = colorPiel;
 		this.venenoso = venenoso;
+		listado[i] = this;
 		i++;
 	}
 	public Anfibio() {}
 	
 	public int cantidadAnfibios() {
-		return ranas+salamandras+i;
+		return i;
 		
 	}
 		
@@ -49,13 +52,17 @@ public class Anfibio extends Animal{
 	
 	public void crearRana(String nombre, int edad, String genero) {
 		Anfibio obj = new Anfibio(nombre, edad, "selva", genero, "rojo", true);
+		listado[i] = this;
 		ranas++;
+		i++;
 		
 	}
 		
 	public void crearSalamandra(String nombre, int edad, String genero) {
 		Anfibio obj = new Anfibio(nombre, edad, "selva", genero, "negro y amarillo", false);
+		listado[i] = this;
 		salamandras++;
+		i++;
 	}
 	
 	

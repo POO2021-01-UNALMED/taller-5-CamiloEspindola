@@ -91,17 +91,13 @@ public class Animal {
 				);
 		
 	}
-	//“Mi nombre es #nombre, tengo una edad de #edad, habito en #habitat y mi genero es 
-	//#genero, la zona en la que me ubico es #zona, en el #zoo” cambie respectivamente 
-	//los valores contiguos con el #, tenga en cuenta que los valores de zoo y zona son los 
-	//valores del nombre del respectivo objeto, en case de que el animal no tenga una zona 
-	//solo imprima hasta el genero. 
+	
     Zoologico objZ;
     Zona objZona;
     
 	public String toString() {
 		
-		return ("Mi nombre es "+nombre+", tengo una edad de "+Integer.toString(getEdad())+", habito en "
+		return ("Mi nombre es "+nombre+", tengo una edad de "+edad+", habito en "
 	    +habitat+"y mi genero es "+genero+", la zona en la que me ubico es "+objZona.getNombre()+", en el  "+
 		objZ.getNombre());
 		

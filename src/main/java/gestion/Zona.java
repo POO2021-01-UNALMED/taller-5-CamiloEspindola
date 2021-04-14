@@ -7,7 +7,6 @@ public class Zona {
 	private  Animal Animales [];
 	int i = 0;
     
-	
 	public String getNombre() {
 		return nombre;
 	}
