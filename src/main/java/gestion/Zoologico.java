@@ -6,6 +6,7 @@ public class Zoologico {
 	private ArrayList<Zona> zonas = new ArrayList<Zona>();
 	public static int i = 0;
 	
+	
 	public String getNombre() {
 		return nombre;
 	}

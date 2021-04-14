@@ -34,6 +34,7 @@ public class Zona {
 	public Zona() {}
 	
 	
+	
 	public void agregarAnimales(Animal animal) {
 		animales.add(animal);
 	}
