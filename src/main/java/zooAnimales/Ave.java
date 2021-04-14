@@ -1,17 +1,18 @@
 package zooAnimales;
-
+import java.util.ArrayList;
 public class Ave extends Animal {
-	private static Ave listado [];
+	private static ArrayList<Ave> listado = new ArrayList<Ave>();
 	public static int halcones;
 	public static int aguilas;
 	private String colorPlumas;
 	public static int i = 0;
 	
-	public Ave[] getListado() {
+	
+	public static ArrayList<Ave> getListado() {
 		return listado;
 	}
-	public void setListado(Ave[] listado) {
-		this.listado = listado;
+	public static void setListado(ArrayList<Ave> listado) {
+		Ave.listado = listado;
 	}
 	public String getColorPlumas() {
 		return colorPlumas;
@@ -25,14 +26,15 @@ public class Ave extends Animal {
 		super.setHabitat(habitat);
 		super.setGenero(genero);
 		this.colorPlumas = colorPlumas;
-		listado[i] = this;
-		i++;
+		listado.add(this);
 	}
 	
-	public Ave() {}
-	
-	public int cantidadAves() {
-		return i;
+
+	public Ave() {
+		listado.add(this);
+	}
+	public static int cantidadAves() {
+		return listado.size();
 	}
 	
 	public String movimiento() {
@@ -40,19 +42,18 @@ public class Ave extends Animal {
 		
 	}
 	 
-	public void crearHalcon(String nombre, int edad, String genero ) {
-		Ave obj1 = new Ave (nombre, edad, "montanas", genero, "cafe glorioso");
+	public static Ave crearHalcon(String nombre, int edad, String genero) {
+		Ave halcon = new Ave(nombre, edad, "montanas", genero, "cafe glorioso");
 		halcones++;
+		return halcon;
 	}
 	
-	public void crearAguila(String nombre, int edad, String genero) {
-		Ave obj1 = new Ave (nombre, edad, "montanas", genero, "blanco y amarillo" );
-		listado[i] = this;
+
+	public static Ave crearAguila(String nombre, int edad, String genero) {
+		Ave aguila = new Ave(nombre, edad, "montanas", genero, "blanco y amarillo");
 		aguilas++;
-		i++;
-		
+		return aguila;
 	}
-	
 	
 	
 	

@@ -1,18 +1,20 @@
 package zooAnimales;
-
+import java.util.ArrayList;
 public class Mamifero extends Animal {
-	private static Mamifero listado[];
+	private static ArrayList<Mamifero> listado = new ArrayList<Mamifero>();
 	public static int caballos;
 	public static int leones;
 	private boolean pelaje;
 	private int patas;
 	public static int i = 0;
 	
-	public Mamifero[] getListado() {
+	
+	
+	public static ArrayList<Mamifero> getListado() {
 		return listado;
 	}
-	public void setListado(Mamifero[] listado) {
-		this.listado = listado;
+	public static void setListado(ArrayList<Mamifero> listado) {
+		Mamifero.listado = listado;
 	}
 	public boolean isPelaje() {
 		return pelaje;
@@ -34,24 +36,28 @@ public class Mamifero extends Animal {
 		super.setGenero(genero);
 		this.pelaje = pelaje;
 		this.patas = patas;
-		listado[i] = this;
-		i++;
+		listado.add(this);
+		
 	}
 	
-	public Mamifero() {}
+	public Mamifero() {
+		listado.add(this);
+	}
 	
-	public int cantidadMamiferos() {
-		return i;
+	public static int cantidadMamiferos() {
+		return listado.size();
 	}
 	
 	
-	public void crearCaballo(String nombre, int edad, String genero) {
-		Mamifero objM = new Mamifero (nombre,  edad, "pradera", genero, true, 4);
-		caballos++;	
+	public static Mamifero crearCaballo(String nombre, int edad, String genero) {
+		Mamifero caballo = new Mamifero(nombre, edad, "pradera", genero, true, 4);
+		caballos++;
+		return caballo;
 	}
 
-	public void crearLeon(String nombre, int edad, String genero) {
-		Mamifero objM = new Mamifero (nombre, edad, "selva", genero, true, 4 );
+	public static Mamifero crearLeon(String nombre, int edad, String genero) {
+		Mamifero leon = new Mamifero(nombre, edad, "selva", genero, true, 4);
 		leones++;
+		return leon; 
 	}
 }

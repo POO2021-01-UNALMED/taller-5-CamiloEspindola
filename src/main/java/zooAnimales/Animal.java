@@ -7,7 +7,7 @@ public class Animal {
 	private int edad;
 	private String habitat;
 	private String genero;
-	private static Zona zona [];
+	private Zona zona;
 	
 	
 	public String getNombre() {
@@ -42,15 +42,18 @@ public class Animal {
 		this.genero = genero;
 	}
 
-	public Zona[] getZona() {
+	
+
+
+	
+	public Zona getZona() {
 		return zona;
 	}
 
-	public void setZona(Zona[] zona) {
+	public void setZona(Zona zona) {
 		this.zona = zona;
 	}
 
-	
 	public int getTotalAnimales() {
 		return totalAnimales;
 	}
@@ -69,7 +72,9 @@ public class Animal {
 	
 	
 	
-	public Animal() {}
+	public Animal() {
+		totalAnimales++;
+	}
 	
 	public String movimiento() {
 		return "desplazarse";
@@ -82,23 +87,24 @@ public class Animal {
     Reptil objR;
     Pez objP;
     Anfibio objAn;
-	public String totalPorTipo() {
-		return ("Mamiferos: "+Integer.toString(objM.cantidadMamiferos())+
-			    "Aves: "+Integer.toString(objA.cantidadAves())+
-			    "Reptiles: "+Integer.toString(objR.cantidadReptiles())+
-			    "Peces: "+Integer.toString(objP.cantidadPeces())+
-			    "Anfibios: "+Integer.toString(objAn.cantidadAnfibios())
-				);
+    public static String totalPorTipo() {
+		return "Mamiferos: " + Mamifero.cantidadMamiferos() +"\n"
+			+"Aves: " + Ave.cantidadAves() +"\n"
+			+"Reptiles: " + Reptil.cantidadReptiles() +"\n"
+			+"Peces: " + Pez.cantidadPeces() +"\n"
+			+"Anfibios: " + Anfibio.cantidadAnfibios();
 	}
 	
     Zoologico objZ;
     Zona objZona;
     
+    @Override
 	public String toString() {
-		
-		return ("Mi nombre es "+nombre+", tengo una edad de "+edad+", habito en "
-	    +habitat+"y mi genero es "+genero+", la zona en la que me ubico es "+objZona.getNombre()+", en el  "+
-		objZ.getNombre());
-		
+		String cadena ="Mi nombre es "+nombre+", tengo una edad de "+edad
+						+", habito en "+habitat+ " y mi genero es "+genero; 
+		if(zona != null)
+			cadena += ", la zona en la que me ubico es "+zona.getNombre()
+			+", en el "+zona.getZoo().getNombre(); 
+		return cadena;
 	}
 }

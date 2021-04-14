@@ -1,9 +1,9 @@
 package zooAnimales;
 
-
+import java.util.ArrayList;
 public class Reptil extends Animal {
 
-		private static Reptil listado[];
+	    private static ArrayList<Reptil> listado = new ArrayList<Reptil>();
 		public static int iguanas;
 		public static int serpientes;
 		private String colorEscamas;
@@ -11,11 +11,12 @@ public class Reptil extends Animal {
 		public static int i = 0;
 		
 		
-		public Reptil[] getListado() {
+		
+		public static ArrayList<Reptil> getListado() {
 			return listado;
 		}
-		public void setListado(Reptil[] listado) {
-			this.listado = listado;
+		public static void setListado(ArrayList<Reptil> listado) {
+			Reptil.listado = listado;
 		}
 		public String getColorEscamas() {
 			return colorEscamas;
@@ -37,14 +38,15 @@ public class Reptil extends Animal {
 			super.setGenero(genero);
 			this.colorEscamas = colorEscamas;
 			this.largoCola = largoCola;
-			listado[i] = this;
-			i++;
+			listado.add(this);
 		}
-		public Reptil() {}
+		public Reptil() {
+			listado.add(this);
+		}
 		
 		
-		public int cantidadReptiles() {
-			return i;
+		public static int cantidadReptiles() {
+			return listado.size();
 		}
 		
 		public String movimiento() {
@@ -53,19 +55,17 @@ public class Reptil extends Animal {
 		}
 		
 		
-		public void crearIguana( String nombre, int edad, String genero) {
-			Reptil obj = new Reptil (nombre, edad, "humedal", genero, "verde", 3);
-			listado[i] = this;
+		public static Reptil crearIguana(String nombre, int edad, String genero) {
+			Reptil iguana = new Reptil(nombre, edad, "humedal", genero, "verde", 3);
 			iguanas++;
-			i++;
+			return iguana;
 		}
 	
 
-		public void crearSerpiente(String nombre, int edad, String genero) {
-			Reptil obj = new Reptil (nombre, edad, "jungla", genero, "blanco", 1);
-			listado[i] = this;
+		public static Reptil crearSerpiente(String nombre, int edad, String genero) {
+			Reptil serpiente = new Reptil(nombre, edad, "jungla", genero, "blanco", 1);
 			serpientes++;
-			i++;
+			return serpiente; 
 		}
 		
 		
